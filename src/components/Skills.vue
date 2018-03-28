@@ -1,15 +1,11 @@
 <template>
   <div class="container">
-    <!-- {{ name }}
-    {{ btnState ? 'The button is disabled' : 'The button is active.' }}
-    <button v-on:click="changeName" v-bind:disabled="btnState"> Change Name </button> -->
     <div class="holder">
       <form @submit.prevent="addSkill">
         <input type="text" placeholder="Enter a skill you want to add.." v-model="skill" v-validate="'min:5'" name="skill"/>
         <transition name="alert-in" enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
           <span class="alert" v-show="errors.has('skill')">{{ errors.first('skill') }}</span>
         </transition>
-        <!-- {{skill}} -->
       </form>
       <ul>
         <transition-group name="list" enter-active-class="animated bounceInUp" leave-active-class="animated bounceOutDown">
@@ -18,11 +14,6 @@
           </li>
         </transition-group>
         <p>These are the front-end skills that you posses.</p>
-        <!-- <p v-if="skills.length >= 1">You have more than one skill. </p>
-        <p v-else>You have less than or equal to 1 skill. </p>
-        <div v-bind:class="{alert: showAlert}"></div>
-        <div v-bind:class="alertObject"></div>
-        <div v-bind:style="{ backgroundColor: bgColor, width: bgWidth, height: bgHeight }"></div> -->
       </ul>
     </div>
   </div>
@@ -41,13 +32,6 @@ export default {
         { skill: 'jQuery' }
       ],
       skill: ''
-      // showAlert: true,
-      // alertObject: {
-      //   alert2: true
-      // },
-      // bgColor: '#FF6600',
-      // bgWidth: '100%',
-      // bgHeight: '40px'
     };
   },
   methods: {
@@ -73,29 +57,6 @@ export default {
 @import 'https://cdn.jsdelivr.net/npm/animate.css@3.5.1';
 @import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
 
-/* h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.alert {
-  background-color: blueviolet;
-  width: 60%;
-  height: 25px;
-}
-.alert2 {
-  background-color: plum;
-  width: 80%;
-  height: 25px;
-} */
 .holder {
   background: #fff;
 }
